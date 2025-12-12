@@ -1,4 +1,4 @@
-export class DateUtils {
+export default class DateUtils {
     // Get current date in YYYY/MM/DD or other format
     public static today(separator: string = "/"): string {
         const date = new Date();

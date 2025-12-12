@@ -41,4 +41,15 @@ export default class Logger {
     public setFormat(format: string) {
         this.format = format;
     }
+
+    // Method to update log file path
+    public setLogFile(filePath: string) {
+        const fullPath = path.resolve(filePath);
+        const accessLogStream = fs.createWriteStream(fullPath, { flags: "a" });
+        this.stream = {
+            write: (message: string) => {
+                accessLogStream.write(message);
+            },
+        };
+    }
 }
