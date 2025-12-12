@@ -34,7 +34,7 @@ export default class AudioUtils {
     }
 
     // Verify supported file types
-    public static async verifyFileType(
+    private static async verifyFileType(
         filePath: string
     ): Promise<boolean> {
         if (!filePath.endsWith(".mp3") && !filePath.endsWith(".wav")) {
