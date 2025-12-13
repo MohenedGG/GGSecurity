@@ -71,7 +71,7 @@ app.get("/", (req, res) => {
 app.listen(3000, () => console.log("Server running on port 3000"));
 `;
         const content = language === "typescript" ? tsContent : jsContent;
-        fs_1.default.writeFileSync(path_1.default.join(projectPath, "src", `index.${fileExtension}`), content);
+        fs_1.default.writeFileSync(path_1.default.join(projectPath, "src", `server.${fileExtension}`), content);
     }
     // Install essential packages
     static installPackages(TypeScript = false, projectPath = process.cwd()) {
@@ -159,9 +159,9 @@ app.listen(3000, () => console.log("Server running on port 3000"));
                 // Add TypeScript scripts
                 packageJson.scripts = {
                     ...packageJson.scripts,
-                    dev: "ts-node-dev --respawn --transpile-only src/index.ts",
+                    dev: "ts-node-dev --respawn --transpile-only src/server.ts",
                     build: "tsc",
-                    start: "node dist/index.js",
+                    start: "node dist/server.js",
                 };
             }
             else {
@@ -170,8 +170,8 @@ app.listen(3000, () => console.log("Server running on port 3000"));
                 // Add JavaScript scripts
                 packageJson.scripts = {
                     ...packageJson.scripts,
-                    dev: "node src/index.js",
-                    start: "node src/index.js",
+                    dev: "node src/server.js",
+                    start: "node src/server.js",
                 };
             }
             fs_1.default.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
