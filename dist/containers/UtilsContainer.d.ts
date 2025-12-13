@@ -1,0 +1,32 @@
+import RequestData from "../utils/RequestData";
+import { Request } from "express";
+export default class Utils {
+    private static audio;
+    private static video;
+    private static file;
+    private static date;
+    static getAudioDuration(filePath: string): Promise<string>;
+    static getVideoDuration(filePath: string): Promise<string>;
+    static getFileSize(filePath: string, unit?: "B" | "b" | "KB" | "kb" | "MB" | "mb" | "GB" | "gb"): string;
+    static getFileExtension(filePath: string): string;
+    static isImageFile(filePath: string): boolean;
+    static isVideoFile(filePath: string): boolean;
+    static isAudioFile(filePath: string): boolean;
+    static isDocumentFile(filePath: string): boolean;
+    static isArchiveFile(filePath: string): boolean;
+    static today(separator?: string): string;
+    static nowTime(separator?: string): string;
+    static getRequestIp(req: Request): string;
+    static getRequestMethod(req: Request): string;
+    static getRequestApi(req: Request): string;
+    static getRequestUserAgent(req: Request): string;
+    static getReqInfos(req: Request): ReturnType<typeof RequestData.getReqInfos>;
+    static shuffleArray<T>(array: T[]): T[];
+    static removeDuplicatesFromArray<T>(array: T[]): T[];
+    static getRandomElement<T>(array: T[]): T | undefined;
+    static flattenArray<T>(array: T[][]): T[];
+    static maxFromArray(array: number[]): number | undefined;
+    static minFromArray(array: number[]): number | undefined;
+    static sumArray(array: number[]): number;
+    static averageArray(array: number[]): number | undefined;
+}
