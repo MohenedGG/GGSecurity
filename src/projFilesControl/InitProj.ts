@@ -87,7 +87,7 @@ app.listen(3000, () => console.log("Server running on port 3000"));
         const content = language === "typescript" ? tsContent : jsContent;
 
         fs.writeFileSync(
-            path.join(projectPath, "src", `index.${fileExtension}`),
+            path.join(projectPath, "src", `server.${fileExtension}`),
             content
         );
     }
@@ -204,9 +204,9 @@ app.listen(3000, () => console.log("Server running on port 3000"));
                 // Add TypeScript scripts
                 packageJson.scripts = {
                     ...packageJson.scripts,
-                    dev: "ts-node-dev --respawn --transpile-only src/index.ts",
+                    dev: "ts-node-dev --respawn --transpile-only src/server.ts",
                     build: "tsc",
-                    start: "node dist/index.js",
+                    start: "node dist/server.js",
                 };
             } else {
                 // JavaScript project - set type to module (ES6)
@@ -215,8 +215,8 @@ app.listen(3000, () => console.log("Server running on port 3000"));
                 // Add JavaScript scripts
                 packageJson.scripts = {
                     ...packageJson.scripts,
-                    dev: "node src/index.js",
-                    start: "node src/index.js",
+                    dev: "node src/server.js",
+                    start: "node src/server.js",
                 };
             }
 

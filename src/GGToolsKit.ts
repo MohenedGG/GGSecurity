@@ -2,7 +2,7 @@ import Init from "./containers/InitContainers";
 import Protections from "./containers/ProtectionsContainer";
 import Utils from "./containers/UtilsContainer";
 
-export default class GGToolsKit {
+class GGToolsKit {
     // Initialization Container
     public static Init = Init;
     // Protections Container
@@ -10,3 +10,5 @@ export default class GGToolsKit {
     // Utils Container
     public static Utils = Utils;
 }
+
+export = GGToolsKit;
