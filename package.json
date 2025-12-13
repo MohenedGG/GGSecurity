@@ -1,6 +1,6 @@
 {
   "name": "gg-tools-kit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Node.js toolkit for utilities and protections",
   "main": "dist/GGToolsKit.js",
   "types": "dist/GGToolsKit.d.ts",
