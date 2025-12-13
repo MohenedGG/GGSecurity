@@ -1,7 +1,7 @@
 import InitProj from "../projFilesControl/InitProj";
-import ControlSecondaryLibraries from "../projFilesControl/ControlSecondaryLibraries";
+import InstallSecondaryLibraries from "../projFilesControl/InstallSecondaryLibraries";
 
-export default class Controllers {
+export default class Init {
     // Project Initialization
     public static initBackendProject(
         TypeScript: boolean = false,
@@ -26,10 +26,10 @@ export default class Controllers {
 
     // Secondary Libraries Control
     public static installAudioLibrary(): void {
-        return ControlSecondaryLibraries.installAudioLibrary();
+        return InstallSecondaryLibraries.installAudioLibrary();
     }
 
     public static installVideoLibrary(): void {
-        return ControlSecondaryLibraries.installVideoLibrary();
+        return InstallSecondaryLibraries.installVideoLibrary();
     }
 }
