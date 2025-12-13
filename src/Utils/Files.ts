@@ -2,21 +2,61 @@ import fs from "fs";
 import path from "path";
 
 export default class FileUtils {
-
     // Supported image extensions
-    private static readonly imageExtensions = ["jpg", "jpeg", "png", "gif", "bmp", "webp", "tiff", "svg"];
+    private static readonly imageExtensions = [
+        "jpg",
+        "jpeg",
+        "png",
+        "gif",
+        "bmp",
+        "webp",
+        "tiff",
+        "svg",
+    ];
 
     // Supported video extensions
-    private static readonly videoExtensions = ["mp4", "avi", "mov", "wmv", "flv", "mkv", "webm"];
+    private static readonly videoExtensions = [
+        "mp4",
+        "avi",
+        "mov",
+        "wmv",
+        "flv",
+        "mkv",
+        "webm",
+    ];
 
     // Supported audio extensions
-    private static readonly audioExtensions = ["mp3", "wav", "flac", "aac", "ogg", "m4a"];
+    private static readonly audioExtensions = [
+        "mp3",
+        "wav",
+        "flac",
+        "aac",
+        "ogg",
+        "m4a",
+    ];
 
     // Supported document extensions
-    private static readonly documentExtensions = ["pdf", "doc", "docx", "xls", "xlsx", "ppt", "pptx", "txt", "rtf"];
+    private static readonly documentExtensions = [
+        "pdf",
+        "doc",
+        "docx",
+        "xls",
+        "xlsx",
+        "ppt",
+        "pptx",
+        "txt",
+        "rtf",
+    ];
 
     // Supported archive extensions
-    private static readonly archiveExtensions = ["zip", "rar", "7z", "tar", "gz", "bz2"];
+    private static readonly archiveExtensions = [
+        "zip",
+        "rar",
+        "7z",
+        "tar",
+        "gz",
+        "bz2",
+    ];
 
     // Get raw file size in bytes
     private static getRawSize(filePath: string): number {
@@ -24,8 +64,7 @@ export default class FileUtils {
             const stats = fs.statSync(filePath);
             return stats.size;
         } catch (err) {
-            console.error("Error getting file size:", (err as Error).message);
-            return 0;
+            throw new Error(`Error getting file size: ${(err as Error).message}`);
         }
     }
 
