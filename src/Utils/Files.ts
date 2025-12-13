@@ -2,6 +2,22 @@ import fs from "fs";
 import path from "path";
 
 export default class FileUtils {
+
+    // Supported image extensions
+    private static readonly imageExtensions = ["jpg", "jpeg", "png", "gif", "bmp", "webp", "tiff", "svg"];
+
+    // Supported video extensions
+    private static readonly videoExtensions = ["mp4", "avi", "mov", "wmv", "flv", "mkv", "webm"];
+
+    // Supported audio extensions
+    private static readonly audioExtensions = ["mp3", "wav", "flac", "aac", "ogg", "m4a"];
+
+    // Supported document extensions
+    private static readonly documentExtensions = ["pdf", "doc", "docx", "xls", "xlsx", "ppt", "pptx", "txt", "rtf"];
+
+    // Supported archive extensions
+    private static readonly archiveExtensions = ["zip", "rar", "7z", "tar", "gz", "bz2"];
+
     // Get raw file size in bytes
     private static getRawSize(filePath: string): number {
         try {
@@ -44,36 +60,31 @@ export default class FileUtils {
 
     // Check if file is an image
     public static isImageFile(filePath: string): boolean {
-        const imageExtensions = ["jpg", "jpeg", "png", "gif", "bmp", "webp", "tiff", "svg"];
         const ext = this.getFileExtension(filePath).toLowerCase();
-        return imageExtensions.includes(ext);
+        return this.imageExtensions.includes(ext);
     }
 
     // Check if file is a video
     public static isVideoFile(filePath: string): boolean {
-        const videoExtensions = ["mp4", "avi", "mov", "wmv", "flv", "mkv", "webm"];
         const ext = this.getFileExtension(filePath).toLowerCase();
-        return videoExtensions.includes(ext);
+        return this.videoExtensions.includes(ext);
     }
 
     // Check if file is an audio
     public static isAudioFile(filePath: string): boolean {
-        const audioExtensions = ["mp3", "wav", "flac", "aac", "ogg", "m4a"];
         const ext = this.getFileExtension(filePath).toLowerCase();
-        return audioExtensions.includes(ext);
+        return this.audioExtensions.includes(ext);
     }
 
     // Check if file is a document
     public static isDocumentFile(filePath: string): boolean {
-        const documentExtensions = ["pdf", "doc", "docx", "xls", "xlsx", "ppt", "pptx", "txt", "rtf"];
         const ext = this.getFileExtension(filePath).toLowerCase();
-        return documentExtensions.includes(ext);
+        return this.documentExtensions.includes(ext);
     }
 
     // Check if file is a compressed archive
     public static isArchiveFile(filePath: string): boolean {
-        const archiveExtensions = ["zip", "rar", "7z", "tar", "gz", "bz2"];
         const ext = this.getFileExtension(filePath).toLowerCase();
-        return archiveExtensions.includes(ext);
+        return this.archiveExtensions.includes(ext);
     }
 }
