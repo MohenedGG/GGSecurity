@@ -1,5 +1,4 @@
 import * as musicMetadata from "music-metadata";
-import * as fs from "fs";
 
 export default class AudioUtils {
     // Calculate the duration of the sound in seconds
