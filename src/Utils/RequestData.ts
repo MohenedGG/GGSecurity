@@ -8,7 +8,7 @@ interface RequestInfo {
 }
 
 export default class RequestData {
-    static getRequestIp(req: Request): string {
+    public static getRequestIp(req: Request): string {
         const forwarded = req.headers["x-forwarded-for"];
         const forwardedIp = Array.isArray(forwarded)
             ? forwarded[0]
@@ -21,19 +21,19 @@ export default class RequestData {
         );
     }
 
-    static getRequestMethod(req: Request): string {
+    public static getRequestMethod(req: Request): string {
         return req.method;
     }
 
-    static getRequestApi(req: Request): string {
+    public static getRequestApi(req: Request): string {
         return req.originalUrl;
     }
 
-    static getRequestUserAgent(req: Request): string {
+    public static getRequestUserAgent(req: Request): string {
         return req.headers["user-agent"] || "Unknown";
     }
 
-    static getReqInfos(req: Request): RequestInfo {
+    public static getReqInfos(req: Request): RequestInfo {
         const ip = this.getRequestIp(req);
         const method = this.getRequestMethod(req);
         const api = this.getRequestApi(req);

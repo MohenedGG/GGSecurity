@@ -64,7 +64,9 @@ export default class FileUtils {
             const stats = fs.statSync(filePath);
             return stats.size;
         } catch (err) {
-            throw new Error(`Error getting file size: ${(err as Error).message}`);
+            throw new Error(
+                `Error getting file size: ${(err as Error).message}`
+            );
         }
     }
 
